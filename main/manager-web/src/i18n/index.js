@@ -3,6 +3,7 @@ import VueI18n from 'vue-i18n';
 import zhCN from './zh_CN';
 import zhTW from './zh_TW';
 import en from './en';
+import viVN from './vi_VN';
 
 Vue.use(VueI18n);
 
@@ -19,6 +20,9 @@ const getDefaultLanguage = () => {
     }
     return 'zh_CN';
   }
+  if (browserLang.indexOf('vi') === 0) {
+    return 'vi_VN';
+  }
   return 'en';
 };
 
@@ -28,7 +32,8 @@ const i18n = new VueI18n({
   messages: {
     'zh_CN': zhCN,
     'zh_TW': zhTW,
-    'en': en
+    'en': en,
+    'vi_VN': viVN
   }
 });
 
