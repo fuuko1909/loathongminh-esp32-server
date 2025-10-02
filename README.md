@@ -1,20 +1,22 @@
+# Hướng dẫn Tiếng Việt - Xiaozhi ESP32 Server
+
 [![Banners](docs/images/banner1.png)](https://github.com/xinnan-tech/xiaozhi-esp32-server)
 
-<h1 align="center">小智后端服务xiaozhi-esp32-server</h1>
+<h1 align="center">Dịch vụ Backend Xiaozhi ESP32 Server</h1>
 
 <p align="center">
-本项目基于人机共生智能理论和技术研发智能终端软硬件体系<br/>为开源智能硬件项目
-<a href="https://github.com/78/xiaozhi-esp32">xiaozhi-esp32</a>提供后端服务<br/>
-根据<a href="https://ccnphfhqs21z.feishu.cn/wiki/M0XiwldO9iJwHikpXD5cEx71nKh">小智通信协议</a>使用Python、Java、Vue实现<br/>
-支持MQTT+UDP协议、Websocket协议、MCP接入点、声纹识别
+Dự án này dựa trên lý thuyết và công nghệ trí tuệ nhân tạo cộng sinh để phát triển hệ thống phần cứng và phần mềm thiết bị thông minh<br/>Là dự án phần cứng thông minh mã nguồn mở
+cung cấp dịch vụ backend cho dự án <a href="https://github.com/78/xiaozhi-esp32">xiaozhi-esp32</a><br/>
+Theo <a href="https://ccnphfhqs21z.feishu.cn/wiki/M0XiwldO9iJwHikpXD5cEx71nKh">Giao thức truyền thông Xiaozhi</a> sử dụng Python, Java, Vue để triển khai<br/>
+Hỗ trợ giao thức MQTT+UDP, giao thức WebSocket, điểm truy cập MCP, nhận dạng giọng nói
 </p>
 
 <p align="center">
 <a href="./README_en.md">English</a>
-· <a href="./docs/FAQ.md">常见问题</a>
-· <a href="https://github.com/xinnan-tech/xiaozhi-esp32-server/issues">反馈问题</a>
-· <a href="./README.md#%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3">部署文档</a>
-· <a href="https://github.com/xinnan-tech/xiaozhi-esp32-server/releases">更新日志</a>
+· <a href="./docs/FAQ.md">Câu hỏi thường gặp</a>
+· <a href="https://github.com/xinnan-tech/xiaozhi-esp32-server/issues">Báo cáo vấn đề</a>
+· <a href="./README.md#%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3">Tài liệu triển khai</a>
+· <a href="https://github.com/xinnan-tech/xiaozhi-esp32-server/releases">Nhật ký cập nhật</a>
 </p>
 <p align="center">
   <a href="https://github.com/xinnan-tech/xiaozhi-esp32-server/releases">
@@ -38,7 +40,7 @@
 </p>
 
 <p align="center">
-Spearheaded by Professor Siyuan Liu's Team (South China University of Technology)
+Được dẫn dắt bởi nhóm của Giáo sư Siyuan Liu (Đại học Công nghệ Nam Trung Quốc)
 </br>
 刘思源教授团队主导研发（华南理工大学）
 </br>
@@ -47,12 +49,11 @@ Spearheaded by Professor Siyuan Liu's Team (South China University of Technology
 
 ---
 
-## 适用人群 👥
+## Đối tượng sử dụng 👥
 
-本项目需要配合 ESP32 硬件设备使用。如果您已经购买了 ESP32 相关硬件，且成功对接过虾哥部署的后端服务，并希望独立搭建自己的
-`xiaozhi-esp32` 后端服务，那么本项目非常适合您。
+Dự án này cần sử dụng kết hợp với thiết bị phần cứng ESP32. Nếu bạn đã mua thiết bị phần cứng ESP32 liên quan, đã kết nối thành công với dịch vụ backend do Hà Cá triển khai và muốn tự xây dựng dịch vụ backend `xiaozhi-esp32` của riêng mình, thì dự án này rất phù hợp với bạn.
 
-想看使用效果？请猛戳视频 🎥
+Muốn xem hiệu quả sử dụng? Hãy xem video 🎥
 
 <table>
   <tr>
@@ -170,196 +171,197 @@ Spearheaded by Professor Siyuan Liu's Team (South China University of Technology
 
 ---
 
-## 警告 ⚠️
+## Cảnh báo ⚠️
 
-1、本项目为开源软件，本软件与对接的任何第三方API服务商（包括但不限于语音识别、大模型、语音合成等平台）均不存在商业合作关系，不为其服务质量及资金安全提供任何形式的担保。
-建议使用者优先选择持有相关业务牌照的服务商，并仔细阅读其服务协议及隐私政策。本软件不托管任何账户密钥、不参与资金流转、不承担充值资金损失风险。
+1、Dự án này là phần mềm mã nguồn mở, phần mềm này và bất kỳ nhà cung cấp dịch vụ API bên thứ ba nào (bao gồm nhưng không giới hạn ở nền tảng nhận dạng giọng nói, mô hình lớn, tổng hợp giọng nói) đều không có quan hệ hợp tác thương mại, không cung cấp bất kỳ hình thức bảo đảm nào về chất lượng dịch vụ và an toàn vốn.
+Khuyến nghị người dùng ưu tiên lựa chọn nhà cung cấp dịch vụ có giấy phép kinh doanh liên quan và đọc kỹ thỏa thuận dịch vụ và chính sách bảo mật của họ. Phần mềm này không lưu trữ bất kỳ khóa tài khoản nào, không tham gia vào luồng tiền, không chịu rủi ro mất tiền nạp.
 
-2、本项目功能未完善，且未通过网络安全测评，请勿在生产环境中使用。 如果您在公网环境中部署学习本项目，请务必做好必要的防护。
+2、Chức năng của dự án này chưa hoàn thiện và chưa thông qua đánh giá an ninh mạng, vui lòng không sử dụng trong môi trường sản xuất. Nếu bạn triển khai dự án này trong môi trường mạng công cộng để học tập, vui lòng thực hiện các biện pháp bảo vệ cần thiết.
 
 ---
 
-## 部署文档
+## Tài liệu triển khai
 
 ![Banners](docs/images/banner2.png)
 
-本项目提供两种部署方式，请根据您的具体需求选择：
+Dự án này cung cấp hai cách triển khai, vui lòng chọn theo nhu cầu cụ thể của bạn:
 
-#### 🚀 部署方式选择
-| 部署方式 | 特点 | 适用场景 | 部署文档 | 配置要求 | 视频教程 | 
+#### 🚀 Lựa chọn phương thức triển khai
+| Phương thức triển khai | Đặc điểm | Kịch bản sử dụng | Tài liệu triển khai | Yêu cầu cấu hình | Video hướng dẫn | 
 |---------|------|---------|---------|---------|---------|
-| **最简化安装** | 智能对话、IOT、MCP、视觉感知 | 低配置环境，数据存储在配置文件，无需数据库 | [①Docker版](./docs/Deployment.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E5%8F%AA%E8%BF%90%E8%A1%8Cserver) / [②源码部署](./docs/Deployment.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E5%8F%AA%E8%BF%90%E8%A1%8Cserver)| 如果使用`FunASR`要2核4G，如果全API，要2核2G | - | 
-| **全模块安装** | 智能对话、IOT、MCP接入点、声纹识别、视觉感知、OTA、智控台 | 完整功能体验，数据存储在数据库 |[①Docker版](./docs/Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [②源码部署](./docs/Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [③源码部署自动更新教程](./docs/dev-ops-integration.md) | 如果使用`FunASR`要4核8G，如果全API，要2核4G| [本地源码启动视频教程](https://www.bilibili.com/video/BV1wBJhz4Ewe) | 
+| **Cài đặt đơn giản nhất** | Đối thoại thông minh, IOT, MCP, nhận thức thị giác | Môi trường cấu hình thấp, dữ liệu lưu trữ trong file cấu hình, không cần cơ sở dữ liệu | [①Phiên bản Docker](./docs/Deployment.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E5%8F%AA%E8%BF%90%E8%A1%8Cserver) / [②Triển khai mã nguồn](./docs/Deployment.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E5%8F%AA%E8%BF%90%E8%A1%8Cserver)| Nếu sử dụng `FunASR` cần 2 nhân 4GB RAM, nếu toàn bộ API, cần 2 nhân 2GB RAM | - | 
+| **Cài đặt toàn bộ module** | Đối thoại thông minh, IOT, điểm truy cập MCP, nhận dạng giọng nói, nhận thức thị giác, OTA, bảng điều khiển thông minh | Trải nghiệm chức năng hoàn chỉnh, dữ liệu lưu trữ trong cơ sở dữ liệu |[①Phiên bản Docker](./docs/Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%B8%80docker%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [②Triển khai mã nguồn](./docs/Deployment_all.md#%E6%96%B9%E5%BC%8F%E4%BA%8C%E6%9C%AC%E5%9C%B0%E6%BA%90%E7%A0%81%E8%BF%90%E8%A1%8C%E5%85%A8%E6%A8%A1%E5%9D%97) / [③Hướng dẫn cập nhật tự động triển khai mã nguồn](./docs/dev-ops-integration.md) | Nếu sử dụng `FunASR` cần 4 nhân 8GB RAM, nếu toàn bộ API, cần 2 nhân 4GB RAM| [Video hướng dẫn khởi động mã nguồn cục bộ](https://www.bilibili.com/video/BV1wBJhz4Ewe) | 
 
-常见问题及相关教程，可参考[这个链接](./docs/FAQ.md)
+Câu hỏi thường gặp và hướng dẫn liên quan, có thể tham khảo [liên kết này](./docs/FAQ.md)
 
-> 💡 提示：以下是按最新代码部署后的测试平台，有需要可烧录测试，并发为6个，每天会清空数据，
+> 💡 Gợi ý: Dưới đây là nền tảng thử nghiệm sau khi triển khai theo mã mới nhất, có thể ghi để thử nghiệm, đồng thời là 6, dữ liệu sẽ được xóa mỗi ngày,
 
 ```
-智控台地址: https://2662r3426b.vicp.fun
-智控台(h5版): https://2662r3426b.vicp.fun/h5/index.html
+Địa chỉ bảng điều khiển thông minh: https://2662r3426b.vicp.fun
+Bảng điều khiển thông minh (phiên bản h5): https://2662r3426b.vicp.fun/h5/index.html
 
-服务测试工具： https://2662r3426b.vicp.fun/test/
-OTA接口地址: https://2662r3426b.vicp.fun/xiaozhi/ota/
-Websocket接口地址: wss://2662r3426b.vicp.fun/xiaozhi/v1/
+Công cụ kiểm tra dịch vụ: https://2662r3426b.vicp.fun/test/
+Địa chỉ giao diện OTA: https://2662r3426b.vicp.fun/xiaozhi/ota/
+Địa chỉ giao diện Websocket: wss://2662r3426b.vicp.fun/xiaozhi/v1/
 ```
 
-#### 🚩 配置说明和推荐
+#### 🚩 Giải thích và đề xuất cấu hình
 > [!Note]
-> 本项目提供两种配置方案：
+> Dự án này cung cấp hai phương án cấu hình:
 > 
-> 1. `入门全免费`配置：适合个人家庭使用，所有组件均采用免费方案，无需额外付费。
+> 1. Cấu hình `Nhập môn hoàn toàn miễn phí`: Phù hợp cho sử dụng cá nhân gia đình, tất cả các thành phần đều sử dụng phương án miễn phí, không cần trả thêm phí.
 > 
-> 2. `流式配置`：适合演示、培训、超过2个并发等场景，采用流式处理技术，响应速度更快，体验更佳。
+> 2. Cấu hình `Luồng`: Phù hợp cho các kịch bản trình diễn, đào tạo, hơn 2 đồng thời, sử dụng công nghệ xử lý luồng, tốc độ phản hồi nhanh hơn, trải nghiệm tốt hơn.
 > 
-> 自`0.5.2`版本起，项目支持流式配置，相比早期版本，响应速度提升约`2.5秒`，显著改善用户体验。
+> Từ phiên bản `0.5.2`, dự án hỗ trợ cấu hình luồng, so với phiên bản cũ, tốc độ phản hồi tăng khoảng `2.5 giây`, cải thiện đáng kể trải nghiệm người dùng.
 
-| 模块名称 | 入门全免费设置 | 流式配置 |
+| Tên module | Cài đặt nhập môn hoàn toàn miễn phí | Cấu hình luồng |
 |:---:|:---:|:---:|
-| ASR(语音识别) | FunASR(本地) | 👍FunASR(本地GPU模式) |
-| LLM(大模型) | ChatGLMLLM(智谱glm-4-flash) | 👍AliLLM(qwen3-235b-a22b-instruct-2507) 或 👍DoubaoLLM(doubao-1-5-pro-32k-250115) |
-| VLLM(视觉大模型) | ChatGLMVLLM(智谱glm-4v-flash) | 👍QwenVLVLLM(千问qwen2.5-vl-3b-instructh) |
-| TTS(语音合成) | ✅LinkeraiTTS(灵犀流式) | 👍HuoshanDoubleStreamTTS(火山双流式语音合成) 或 👍AliyunStreamTTS(阿里云流式语音合成) |
-| Intent(意图识别) | function_call(函数调用) | function_call(函数调用) |
-| Memory(记忆功能) | mem_local_short(本地短期记忆） | mem_local_short（本地短期记忆） |
+| ASR(Nhận dạng giọng nói) | FunASR(cục bộ) | 👍FunASR(chế độ GPU cục bộ) |
+| LLM(Mô hình lớn) | ChatGLMLLM(Zhipu glm-4-flash) | 👍AliLLM(qwen3-235b-a22b-instruct-2507) hoặc 👍DoubaoLLM(doubao-1-5-pro-32k-250115) |
+| VLLM(Mô hình thị giác lớn) | ChatGLMVLLM(Zhipu glm-4v-flash) | 👍QwenVLVLLM(Qianwen qwen2.5-vl-3b-instructh) |
+| TTS(Tổng hợp giọng nói) | ✅LinkeraiTTS(Lingxi luồng) | 👍HuoshanDoubleStreamTTS(Huoshan tổng hợp giọng nói luồng kép) hoặc 👍AliyunStreamTTS(Aliyun tổng hợp giọng nói luồng) |
+| Intent(Nhận dạng ý định) | function_call(gọi hàm) | function_call(gọi hàm) |
+| Memory(Chức năng ghi nhớ) | mem_local_short(ghi nhớ ngắn hạn cục bộ) | mem_local_short(ghi nhớ ngắn hạn cục bộ) |
 
-如果您关心各组件的耗时，请查阅[小智各组件性能测试报告](https://github.com/xinnan-tech/xiaozhi-performance-research)，可按报告中的测试方法在您的环境中实际测试。
+Nếu bạn quan tâm đến thời gian tiêu thụ của các thành phần, vui lòng tham khảo [Báo cáo kiểm tra hiệu suất các thành phần Xiaozhi](https://github.com/xinnan-tech/xiaozhi-performance-research), có thể thực hiện kiểm tra thực tế trong môi trường của bạn theo phương pháp kiểm tra trong báo cáo.
 
-#### 🔧 测试工具
-本项目提供以下测试工具，帮助您验证系统和选择合适的模型：
+#### 🔧 Công cụ kiểm tra
+Dự án này cung cấp các công cụ kiểm tra sau để giúp bạn xác minh hệ thống và lựa chọn mô hình phù hợp:
 
-| 工具名称 | 位置 | 使用方法 | 功能说明 |
+| Tên công cụ | Vị trí | Phương pháp sử dụng | Giải thích chức năng |
 |:---:|:---|:---:|:---:|
-| 音频交互测试工具 | main》xiaozhi-server》test》test_page.html | 使用谷歌浏览器直接打开 | 测试音频播放和接收功能，验证Python端音频处理是否正常 |
-| 模型响应测试工具 | main》xiaozhi-server》performance_tester.py | 执行 `python performance_tester.py` | 测试ASR(语音识别)、LLM(大模型)、VLLM(视觉模型)、TTS(语音合成)三个核心模块的响应速度 |
+| Công cụ kiểm tra tương tác âm thanh | main》xiaozhi-server》test》test_page.html | Sử dụng trình duyệt Chrome để mở trực tiếp | Kiểm tra chức năng phát và nhận âm thanh, xác minh xử lý âm thanh phía Python có bình thường không |
+| Công cụ kiểm tra phản hồi mô hình | main》xiaozhi-server》performance_tester.py | Thực thi `python performance_tester.py` | Kiểm tra tốc độ phản hồi của ba module cốt lõi: ASR(nhận dạng giọng nói), LLM(mô hình lớn), VLLM(mô hình thị giác), TTS(tổng hợp giọng nói) |
 
-> 💡 提示：测试模型速度时，只会测试配置了密钥的模型。
+> 💡 Gợi ý: Khi kiểm tra tốc độ mô hình, chỉ kiểm tra các mô hình đã cấu hình khóa.
 
 ---
-## 功能清单 ✨
-### 已实现 ✅
-![请参考-全模块安装架构图](docs/images/deploy2.png)
-| 功能模块 | 描述 |
+
+## Danh sách chức năng ✨
+### Đã triển khai ✅
+![Vui lòng tham khảo - Sơ đồ kiến trúc cài đặt toàn bộ module](docs/images/deploy2.png)
+| Module chức năng | Mô tả |
 |:---:|:---|
-| 核心架构 | 基于[MQTT+UDP网关](https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/docs/mqtt-gateway-integration.md)、WebSocket、HTTP服务器，提供完整的控制台管理和认证系统 |
-| 语音交互 | 支持流式ASR(语音识别)、流式TTS(语音合成)、VAD(语音活动检测)，支持多语言识别和语音处理 |
-| 声纹识别 | 支持多用户声纹注册、管理和识别，与ASR并行处理，实时识别说话人身份并传递给LLM进行个性化回应 |
-| 智能对话 | 支持多种LLM(大语言模型)，实现智能对话 |
-| 视觉感知 | 支持多种VLLM(视觉大模型)，实现多模态交互 |
-| 意图识别 | 支持LLM意图识别、Function Call函数调用，提供插件化意图处理机制 |
-| 记忆系统 | 支持本地短期记忆、mem0ai接口记忆，具备记忆总结功能 |
-| 工具调用 | 支持客户端IOT协议、客户MCP协议、服务端MCP协议、MCP接入点协议、自定义工具函数 |
-| 指令下发 | 依托MQTT协议，支持从智控台将MCP指令下发到ESP32设备 |
-| 管理后台 | 提供Web管理界面，支持用户管理、系统配置和设备管理；界面支持中文简体、中文繁体、英文显示 |
-| 测试工具 | 提供性能测试工具、视觉模型测试工具和音频交互测试工具 |
-| 部署支持 | 支持Docker部署和本地部署，提供完整的配置文件管理 |
-| 插件系统 | 支持功能插件扩展、自定义插件开发和插件热加载 |
+| Kiến trúc cốt lõi | Dựa trên [Cổng MQTT+UDP](https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/docs/mqtt-gateway-integration.md), WebSocket, máy chủ HTTP, cung cấp hệ thống quản lý và xác thực bảng điều khiển hoàn chỉnh |
+| Tương tác giọng nói | Hỗ trợ ASR(nhận dạng giọng nói) luồng, TTS(tổng hợp giọng nói) luồng, VAD(phát hiện hoạt động giọng nói), hỗ trợ nhận dạng đa ngôn ngữ và xử lý giọng nói |
+| Nhận dạng giọng nói | Hỗ trợ đăng ký, quản lý và nhận dạng giọng nói đa người dùng, xử lý song song với ASR, nhận dạng danh tính người nói theo thời gian thực và truyền cho LLM để phản hồi cá nhân hóa |
+| Đối thoại thông minh | Hỗ trợ nhiều LLM(mô hình ngôn ngữ lớn), thực hiện đối thoại thông minh |
+| Nhận thức thị giác | Hỗ trợ nhiều VLLM(mô hình thị giác lớn), thực hiện tương tác đa phương thức |
+| Nhận dạng ý định | Hỗ trợ nhận dạng ý định LLM, gọi hàm Function Call, cung cấp cơ chế xử lý ý định dạng plugin |
+| Hệ thống ghi nhớ | Hỗ trợ ghi nhớ ngắn hạn cục bộ, ghi nhớ giao diện mem0ai, có chức năng tổng kết ghi nhớ |
+| Gọi công cụ | Hỗ trợ giao thức IOT máy khách, giao thức MCP máy khách, giao thức MCP máy chủ, giao thức điểm truy cập MCP, hàm công cụ tùy chỉnh |
+| Phát lệnh | Dựa trên giao thức MQTT, hỗ trợ phát lệnh MCP từ bảng điều khiển thông minh đến thiết bị ESP32 |
+| Quản lý backend | Cung cấp giao diện quản lý web, hỗ trợ quản lý người dùng, cấu hình hệ thống và quản lý thiết bị; giao diện hỗ trợ hiển thị tiếng Trung giản thể, tiếng Trung phồn thể, tiếng Anh |
+| Công cụ kiểm tra | Cung cấp công cụ kiểm tra hiệu suất, công cụ kiểm tra mô hình thị giác và công cụ kiểm tra tương tác âm thanh |
+| Hỗ trợ triển khai | Hỗ trợ triển khai Docker và triển khai cục bộ, cung cấp quản lý file cấu hình hoàn chỉnh |
+| Hệ thống plugin | Hỗ trợ mở rộng plugin chức năng, phát triển plugin tùy chỉnh và tải nóng plugin |
 
-### 正在开发 🚧
+### Đang phát triển 🚧
 
-想了解具体开发计划进度，[请点击这里](https://github.com/users/xinnan-tech/projects/3)。常见问题及相关教程，可参考[这个链接](./docs/FAQ.md)
+Muốn hiểu kế hoạch phát triển cụ thể, [vui lòng nhấp vào đây](https://github.com/users/xinnan-tech/projects/3). Câu hỏi thường gặp và hướng dẫn liên quan, có thể tham khảo [liên kết này](./docs/FAQ.md)
 
-如果你是一名软件开发者，这里有一份[《致开发者的公开信》](docs/contributor_open_letter.md)，欢迎加入！
-
----
-
-## 产品生态 👬
-小智是一个生态，当你使用这个产品时，也可以看看其他在这个生态圈的[优秀项目](https://github.com/78/xiaozhi-esp32?tab=readme-ov-file#%E7%9B%B8%E5%85%B3%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE)
+Nếu bạn là nhà phát triển phần mềm, đây là [《Thư ngỏ gửi nhà phát triển》](docs/contributor_open_letter.md), chào mừng tham gia!
 
 ---
 
-## 本项目支持的平台/组件列表 📋
-### LLM 语言模型
+## Hệ sinh thái sản phẩm 👬
+Xiaozhi là một hệ sinh thái, khi bạn sử dụng sản phẩm này, bạn cũng có thể xem các [dự án xuất sắc khác](https://github.com/78/xiaozhi-esp32?tab=readme-ov-file#%E7%9B%B8%E5%85%B3%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE) trong hệ sinh thái này
 
-| 使用方式 | 支持平台 | 免费平台 |
+---
+
+## Danh sách nền tảng/thành phần được hỗ trợ bởi dự án này 📋
+### LLM Mô hình ngôn ngữ
+
+| Phương thức sử dụng | Nền tảng hỗ trợ | Nền tảng miễn phí |
 |:---:|:---:|:---:|
-| openai 接口调用 | 阿里百炼、火山引擎豆包、深度求索、智谱ChatGLM、Gemini | 智谱ChatGLM、Gemini |
-| ollama 接口调用 | Ollama | - |
-| dify 接口调用 | Dify | - |
-| fastgpt 接口调用 | Fastgpt | - |
-| coze 接口调用 | Coze | - |
-| xinference 接口调用 | Xinference | - |
-| homeassistant 接口调用 | HomeAssistant | - |
+| Gọi giao diện openai | Ali Bailian, Huoshan Engine Doubao, ShenDu QiuSuo, Zhipu ChatGLM, Gemini | Zhipu ChatGLM, Gemini |
+| Gọi giao diện ollama | Ollama | - |
+| Gọi giao diện dify | Dify | - |
+| Gọi giao diện fastgpt | Fastgpt | - |
+| Gọi giao diện coze | Coze | - |
+| Gọi giao diện xinference | Xinference | - |
+| Gọi giao diện homeassistant | HomeAssistant | - |
 
-实际上，任何支持 openai 接口调用的 LLM 均可接入使用。
+Trên thực tế, bất kỳ LLM nào hỗ trợ gọi giao diện openai đều có thể kết nối sử dụng.
 
 ---
 
-### VLLM 视觉模型
+### VLLM Mô hình thị giác
 
-| 使用方式 | 支持平台 | 免费平台 |
+| Phương thức sử dụng | Nền tảng hỗ trợ | Nền tảng miễn phí |
 |:---:|:---:|:---:|
-| openai 接口调用 | 阿里百炼、智谱ChatGLMVLLM | 智谱ChatGLMVLLM |
+| Gọi giao diện openai | Ali Bailian, Zhipu ChatGLMVLLM | Zhipu ChatGLMVLLM |
 
-实际上，任何支持 openai 接口调用的 VLLM 均可接入使用。
+Trên thực tế, bất kỳ VLLM nào hỗ trợ gọi giao diện openai đều có thể kết nối sử dụng.
 
 ---
 
-### TTS 语音合成
+### TTS Tổng hợp giọng nói
 
-| 使用方式 | 支持平台 | 免费平台 |
+| Phương thức sử dụng | Nền tảng hỗ trợ | Nền tảng miễn phí |
 |:---:|:---:|:---:|
-| 接口调用 | EdgeTTS、火山引擎豆包TTS、腾讯云、阿里云TTS、阿里云流式TTS、CosyVoiceSiliconflow、TTS302AI、CozeCnTTS、GizwitsTTS、ACGNTTS、OpenAITTS、灵犀流式TTS、MinimaxTTS、火山双流式TTS | 灵犀流式TTS、EdgeTTS、CosyVoiceSiliconflow(部分) |
-| 本地服务 | FishSpeech、GPT_SOVITS_V2、GPT_SOVITS_V3、Index-TTS、PaddleSpeech | Index-TTS、PaddleSpeech、FishSpeech、GPT_SOVITS_V2、GPT_SOVITS_V3 |
+| Gọi giao diện | EdgeTTS, Huoshan Engine Doubao TTS, Tencent Cloud, Aliyun TTS, Aliyun Stream TTS, CosyVoiceSiliconflow, TTS302AI, CozeCnTTS, GizwitsTTS, ACGNTTS, OpenAITTS, Lingxi Stream TTS, MinimaxTTS, Huoshan Double Stream TTS | Lingxi Stream TTS, EdgeTTS, CosyVoiceSiliconflow(một phần) |
+| Dịch vụ cục bộ | FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3, Index-TTS, PaddleSpeech | Index-TTS, PaddleSpeech, FishSpeech, GPT_SOVITS_V2, GPT_SOVITS_V3 |
 
 ---
 
-### VAD 语音活动检测
+### VAD Phát hiện hoạt động giọng nói
 
-| 类型  |   平台名称    | 使用方式 | 收费模式 | 备注 |
+| Loại  |   Tên nền tảng    | Phương thức sử dụng | Chế độ tính phí | Ghi chú |
 |:---:|:---------:|:----:|:----:|:--:|
-| VAD | SileroVAD | 本地使用 |  免费  |    |
+| VAD | SileroVAD | Sử dụng cục bộ |  Miễn phí  |    |
 
 ---
 
-### ASR 语音识别
+### ASR Nhận dạng giọng nói
 
-| 使用方式 | 支持平台 | 免费平台 |
+| Phương thức sử dụng | Nền tảng hỗ trợ | Nền tảng miễn phí |
 |:---:|:---:|:---:|
-| 本地使用 | FunASR、SherpaASR | FunASR、SherpaASR |
-| 接口调用 | DoubaoASR、Doubao流式ASR、FunASRServer、TencentASR、AliyunASR、Aliyun流式ASR、百度ASR、OpenAI ASR | FunASRServer |
+| Sử dụng cục bộ | FunASR, SherpaASR | FunASR, SherpaASR |
+| Gọi giao diện | DoubaoASR, Doubao Stream ASR, FunASRServer, TencentASR, AliyunASR, Aliyun Stream ASR, Baidu ASR, OpenAI ASR | FunASRServer |
 
 ---
 
-### Voiceprint 声纹识别
+### Voiceprint Nhận dạng giọng nói
 
-| 使用方式 | 支持平台 | 免费平台 |
+| Phương thức sử dụng | Nền tảng hỗ trợ | Nền tảng miễn phí |
 |:---:|:---:|:---:|
-| 本地使用 | 3D-Speaker | 3D-Speaker |
+| Sử dụng cục bộ | 3D-Speaker | 3D-Speaker |
 
 ---
 
-### Memory 记忆存储
+### Memory Lưu trữ ghi nhớ
 
-|   类型   |      平台名称       | 使用方式 |   收费模式    | 备注 |
+|   Loại   |      Tên nền tảng       | Phương thức sử dụng |   Chế độ tính phí    | Ghi chú |
 |:------:|:---------------:|:----:|:---------:|:--:|
-| Memory |     mem0ai      | 接口调用 | 1000次/月额度 |    |
-| Memory | mem_local_short | 本地总结 |    免费     |    |
-| Memory |     nomem       | 无记忆模式 |    免费     |    |
+| Memory |     mem0ai      | Gọi giao diện | 1000 lần/tháng hạn ngạch |    |
+| Memory | mem_local_short | Tổng kết cục bộ |    Miễn phí     |    |
+| Memory |     nomem       | Chế độ không ghi nhớ |    Miễn phí     |    |
 
 ---
 
-### Intent 意图识别
+### Intent Nhận dạng ý định
 
-|   类型   |     平台名称      | 使用方式 |  收费模式   |          备注           |
+|   Loại   |     Tên nền tảng      | Phương thức sử dụng |  Chế độ tính phí   |          Ghi chú           |
 |:------:|:-------------:|:----:|:-------:|:---------------------:|
-| Intent |  intent_llm   | 接口调用 | 根据LLM收费 |    通过大模型识别意图，通用性强     |
-| Intent | function_call | 接口调用 | 根据LLM收费 | 通过大模型函数调用完成意图，速度快，效果好 |
-| Intent |    nointent   | 无意图模式 |    免费     |    不进行意图识别，直接返回对话结果     |
+| Intent |  intent_llm   | Gọi giao diện | Tính phí theo LLM |     Thông qua mô hình lớn nhận dạng ý định, tính phổ biến mạnh     |
+| Intent | function_call | Gọi giao diện | Tính phí theo LLM | Thông qua gọi hàm mô hình lớn hoàn thành ý định, tốc độ nhanh, hiệu quả tốt |
+| Intent |    nointent   | Chế độ không nhận dạng ý định |    Miễn phí     |    Không thực hiện nhận dạng ý định, trực tiếp trả về kết quả đối thoại     |
 
 ---
 
-## 鸣谢 🙏
+## Lời cảm ơn 🙏
 
-| Logo | 项目/公司 | 说明 |
+| Logo | Dự án/Công ty | Giải thích |
 |:---:|:---:|:---|
-| <img src="./docs/images/logo_bailing.png" width="160"> | [百聆语音对话机器人](https://github.com/wwbin2017/bailing) | 本项目受[百聆语音对话机器人](https://github.com/wwbin2017/bailing)启发，并在其基础上实现 |
-| <img src="./docs/images/logo_tenclass.png" width="160"> | [十方融海](https://www.tenclass.com/) | 感谢[十方融海](https://www.tenclass.com/)为小智生态制定了标准的通讯协议、多设备兼容性方案及高并发场景实践示范；为本项目提供了全链路技术文档支持 |
-| <img src="./docs/images/logo_xuanfeng.png" width="160"> | [玄凤科技](https://github.com/Eric0308) | 感谢[玄凤科技](https://github.com/Eric0308)贡献函数调用框架、MCP通信协议及插件化调用机制的实现代码，通过标准化的指令调度体系与动态扩展能力，显著提升了前端设备(IoT)的交互效率和功能延展性 |
-| <img src="./docs/images/logo_junsen.png" width="160"> | [huangjunsen](https://github.com/huangjunsen0406) | 感谢[huangjunsen](https://github.com/huangjunsen0406) 贡献`智控台移动端`模块，实现了跨平台移动设备的高效控制与实时交互，大幅提升了系统在移动场景下的操作便捷性和管理效率 |
-| <img src="./docs/images/logo_huiyuan.png" width="160"> | [汇远设计](http://ui.kwd988.net/) | 感谢[汇远设计](http://ui.kwd988.net/)为本项目提供专业视觉解决方案，用其服务超千家企业的设计实战经验，赋能本项目产品用户体验 |
-| <img src="./docs/images/logo_qinren.png" width="160"> | [西安勤人信息科技](https://www.029app.com/) | 感谢[西安勤人信息科技](https://www.029app.com/)深化本项目视觉体系，确保整体设计风格在多场景应用中的一致性和扩展性 |
-| <img src="./docs/images/logo_contributors.png" width="160"> | [代码贡献者](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors) | 感谢[所有代码贡献者](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors)贡献者，你们的付出让项目更加健壮和强大。 |
+| <img src="./docs/images/logo_bailing.png" width="160"> | [Bailing Voice Dialogue Robot](https://github.com/wwbin2017/bailing) | Dự án này được truyền cảm hứng từ [Bailing Voice Dialogue Robot](https://github.com/wwbin2017/bailing) và được triển khai dựa trên đó |
+| <img src="./docs/images/logo_tenclass.png" width="160"> | [Shi Fang Rong Hai](https://www.tenclass.com/) | Cảm ơn [Shi Fang Rong Hai](https://www.tenclass.com/) đã xây dựng giao thức truyền thông tiêu chuẩn cho hệ sinh thái Xiaozhi, giải pháp tương thích đa thiết bị và thực hành mẫu cho kịch bản đồng thời cao; cung cấp hỗ trợ tài liệu kỹ thuật toàn chuỗi cho dự án này |
+| <img src="./docs/images/logo_xuanfeng.png" width="160"> | [Xuanfeng Technology](https://github.com/Eric0308) | Cảm ơn [Xuanfeng Technology](https://github.com/Eric0308) đã đóng góp mã triển khai khung gọi hàm, giao thức truyền thông MCP và cơ chế gọi plugin, thông qua hệ thống điều phối lệnh tiêu chuẩn hóa và khả năng mở rộng động, đã cải thiện đáng kể hiệu quả tương tác và khả năng mở rộng chức năng của thiết bị đầu cuối (IoT) |
+| <img src="./docs/images/logo_junsen.png" width="160"> | [huangjunsen](https://github.com/huangjunsen0406) | Cảm ơn [huangjunsen](https://github.com/huangjunsen0406) đã đóng góp module `Bảng điều khiển thông minh di động`, thực hiện điều khiển và tương tác thời gian thực hiệu quả trên thiết bị di động đa nền tảng, cải thiện đáng kể tính tiện lợi và hiệu quả quản lý của hệ thống trong kịch bản di động |
+| <img src="./docs/images/logo_huiyuan.png" width="160"> | [Huiyuan Design](http://ui.kwd988.net/) | Cảm ơn [Huiyuan Design](http://ui.kwd988.net/) đã cung cấp giải pháp hình ảnh chuyên nghiệp cho dự án này, sử dụng kinh nghiệm thiết kế thực tế phục vụ hơn nghìn doanh nghiệp để trao quyền cho trải nghiệm người dùng sản phẩm của dự án này |
+| <img src="./docs/images/logo_qinren.png" width="160"> | [Xi'an Qinren Information Technology](https://www.029app.com/) | Cảm ơn [Xi'an Qinren Information Technology](https://www.029app.com/) đã đào sâu hệ thống hình ảnh của dự án này, đảm bảo tính nhất quán và khả năng mở rộng của phong cách thiết kế tổng thể trong các ứng dụng đa kịch bản |
+| <img src="./docs/images/logo_contributors.png" width="160"> | [Người đóng góp mã](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors) | Cảm ơn [tất cả người đóng góp mã](https://github.com/xinnan-tech/xiaozhi-esp32-server/graphs/contributors), sự đóng góp của bạn đã làm cho dự án trở nên mạnh mẽ và vững chắc hơn. |
 
 
 <a href="https://star-history.com/#xinnan-tech/xiaozhi-esp32-server&Date">
